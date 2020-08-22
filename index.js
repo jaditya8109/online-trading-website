@@ -11,6 +11,8 @@ var mongodb = require('mongodb');
 //encrypting the password
 const bcrypt = require('bcryptjs');
 const { ensureAuthenticated } = require('./config/auth');
+//require mongo atlas keys
+const connectDB = require('./DB/connection');
 
 
 //order model
@@ -52,11 +54,12 @@ app.use(express.static(__dirname + '/public'));
 var Product = require('./models/products');
 var Cart = require('./models/cart');
 
-//connect to mongodb
-mongoose.set('useUnifiedTopology', true);
-mongoose.connect('mongodb://localhost/addToCart',{ useNewUrlParser: true}).then(() => console.log('connected')).catch((err)=>console.log('err'));
+//connect to mongodb localhost connection
+//mongoose.set('useUnifiedTopology', true);
+//mongoose.connect('mongodb://localhost/addToCart',{ useNewUrlParser: true}).then(() => console.log('connected')).catch((err)=>console.log('err'));
     
-
+//connect to mongoDb atlas connection
+connectDB();
 
 //ejs
 app.set('view engine' , 'ejs');
