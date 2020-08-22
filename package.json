@@ -4,7 +4,6 @@
   "description": "Shopping site",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
   },
   "author": "aditya",
   "license": "ISC",
